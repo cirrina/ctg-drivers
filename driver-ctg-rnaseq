@@ -166,12 +166,3 @@ echo "#################################"
 echo "# rnaseq pipeline submitted #"
 echo "#################################"
 echo ""; echo "";
-#
-# ##################
-# # ctg-interop-qc #
-# ##################
-# # Will do interop analysis on runfolder, and compile multiqc report.
-# # This is written to
-# # 1. runfolder/ctg-interop
-# # 2. ctg-qc/interop
-# ctg-interop-qc

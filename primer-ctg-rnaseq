@@ -66,12 +66,19 @@ done
 ################################################
 # Define variables
 ################################################
+# nextflow scripts.
+# Folder where nextflow script, nextflow configs and supplementary scripts are found
+# Must contains /bin/ in which rscripts are found
+nfdir='/projects/fs1/shared/ctg-pipelines/ctg-rnaseq/dev/ctg-rnaseq-v0.99/' # "/Users/david/scripts/ctg-rnaseq/workflow/"
+nf_pipe='ctg-rnaseq.nf'
+
 
 ## Root directories (based on ourr set folder naming conventions on lsens)
 project_root='/projects/fs1/shared/ctg-projects/ctg-rnaseq/' ## '/Users/david/tasks/rnaseq_test/ctg-projects' ## root_rootdir for ctg-projects (not same as delivery dir) /projects/fs1/shared/ctg-projects/ctg-rnaesq
 delivery_root='/projects/fs1/nas-sync/ctg-delivery/rnaseq-bulk/' ## '/Users/david/tasks/rnaseq_test/nftest/ctg-delivery' # root dir for where files are copied upon COMPLETION of the flow. Only files to be delivered to customer are copied here
 qc_root='/projects/fs1/shared/ctg-qc/rnaseq-bulk' # '/Users/david/tasks/rnaseq_test/nftest/ctg-qc' # ctg qc root_root directory. folder where qc stats shpuld be copied to
 runfolder_root='/projects/fs1/nas-sync/upload/'
+
 
 ## project specific directories
 execdir=$(pwd) # execution dir. Should be either illumina runfolder dir or within the project dir where the pipe is run
@@ -85,11 +92,7 @@ fastqdir="${projectdir}/fastq/${projectid}" # fastq dir (bcl2fastq demux dir) wi
 logdir=${projectdir} ## "${log_root}/${projectid}"
 logfile="${logdir}/${projectid}.rnaseq.log"
 
-# nextflow scripts.
-# Folder where nextflow script, nextflow configs and supplementary scripts are found
-# Must contains /bin/ in which rscripts are found
-nfdir='/projects/fs1/shared/ctg-pipelines/ctg-rnaseq/dev/ctg-rnaseq-v0.99/' # "/Users/david/scripts/ctg-rnaseq/workflow/"
-nf_pipe='ctg-rnaseq.nf'
+
 
 
 
