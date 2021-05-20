@@ -119,7 +119,7 @@ echo "";echo ""
 # #############################
 #  Initiate Nextflow delivery Pipeline
 # #############################
-    nohup nextflow run $nf_pipe -c $nf_conf > nf.log.rnaseq &
+    nohup nextflow run $nf_pipe -c $nf_conf > nf.log.delivery &
     # nextflow run $nf_pipe -c $nf_conf
     echo "nextflow run $nf_pipe -c $nf_conf"
 
