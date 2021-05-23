@@ -288,11 +288,11 @@ echo ""                                                               >> $nf_con
 echo "  //  major modes                                             " >> $nf_conf
 echo "  run_demux             =  true                               " >> $nf_conf
 echo "  run_align             =  true                               " >> $nf_conf
-echo ""                                                               >> $nf_conf
-echo "  //  optionals                                               " >> $nf_conf
 echo "  run_fastqc            =  true                               " >> $nf_conf
 echo "  run_multiqc           =  true                               " >> $nf_conf
 echo "  run_multiqc_ctg       =  true                               " >> $nf_conf
+echo ""                                                               >> $nf_conf
+echo "  //  non essentials                                          " >> $nf_conf
 echo "  run_fastqscreen       =  true                               " >> $nf_conf
 echo "  run_bam_indexing      =  true                               " >> $nf_conf
 echo "  run_markdups          =  true                               " >> $nf_conf
@@ -307,6 +307,8 @@ echo "  //  delivery params                                         " >> $nf_con
 echo "  pooled              =  false                                " >> $nf_conf
 echo "  deliver_raw         =  false                                " >> $nf_conf
 echo "  deliver_fastq       =  true                                 " >> $nf_conf
+echo "  deliver_fastq       =  true                                 " >> $nf_conf
+echo "  deliver_outbox      =  true                                 " >> $nf_conf
 echo ""   >> $nf_conf
 echo "}"  >> $nf_conf
 echo ""   >> $nf_conf
