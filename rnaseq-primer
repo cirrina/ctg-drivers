@@ -99,6 +99,7 @@ logfile="${logdir}/${projectid}.rnaseq.log"
 
 
 # Sampleshee output from rscripts
+
 samplesheet_demux="${projectdir}/SampleSheet-${projectid}-demux.csv"
 samplesheet_ctg="${projectdir}/SampleSheet-${projectid}-ctg.csv"
 
@@ -212,7 +213,7 @@ rsync -av "${nfdir}/" "${projectdir}/" # rsync nextflow foles. Will overwrite co
 #######################################################
 # Generate sample sheets using Rscripts
 #######################################################
-singcmd="singularity exec --bind /projects/fs1/ /projects/fs1/shared/ctg-containers/ctg-rnaseq/ctg-rnaseq.v1.0.sif"
+singcmd="singularity exec --bind /projects/fs1/ /projects/fs1/shared/ctg-containers/ctg-rnaseq/ctg-rnaseq-v1.1/ctg-rnaseq-v1.1.sif"
 
 
 $singcmd ${projectdir}/bin/iem-samplesheet-processor.R \
@@ -269,8 +270,10 @@ echo "  bindir              =  '${projectdir}/bin/'                 " >> $nf_con
 echo "  fastqdir            =  '${fastqdir}'                        " >> $nf_conf
 echo ""                                                               >> $nf_conf
 echo "  //  samplesheets and files                                  " >> $nf_conf
-echo "  samplesheet         =  '${samplesheet_ctg}'                 " >> $nf_conf
-echo "  samplesheet_demux   =  '${samplesheet_demux}'               " >> $nf_conf
+echo "  samplesheet           =  '${samplesheet_ctg}'                 " >> $nf_conf
+echo "  samplesheet_demux     =  '${samplesheet_demux}'               " >> $nf_conf
+echo "  samplesheet_original  =  '${samplesheet}'                     " >> $nf_conf
+
 echo ""                                                               >> $nf_conf
 echo "  //  assay specific                                          " >> $nf_conf
 echo "  assay               =  '${assay}'                           " >> $nf_conf
@@ -362,8 +365,8 @@ echo ""; echo "";
 if [[ ${execdir} == "${runfolder_root}/${runfolder}" ]]
   then
     echo ""
-    echo "running ctg-interop-qc sctipt"
-    ctg-interop-qc
+    echo "running ctg-interop-qc script"
+    /projects/fs1/shared/ctg-tools/bin/ctg-interop-qc
 fi
 
 # ################################################

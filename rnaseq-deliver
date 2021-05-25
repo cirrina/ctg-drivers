@@ -93,7 +93,7 @@ echo "";
 
 echo "'${nf_conf}' project specific configuration file: "
 echo "--------------------------------------------------"
-cat ${nf_conf}
+# cat ${nf_conf}
 echo "--------------------------------------------------"
 # Prompt user to approve running in current directory and input
 echo "";
