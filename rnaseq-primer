@@ -79,6 +79,10 @@ delivery_root='/projects/fs1/nas-sync/ctg-delivery/rnaseq' ## '/Users/david/task
 qc_root='/projects/fs1/shared/ctg-qc/rnaseq' # '/Users/david/tasks/rnaseq_test/nftest/ctg-qc' # ctg qc root_root directory. folder where qc stats shpuld be copied to
 runfolder_root='/projects/fs1/nas-sync/upload'
 completed_root='/projects/fs1/shared/ctg-completed/rnaseq'
+## outbox delivery on ls4
+userid=$(whoami)
+outbox_root="/box/outbox/${userid}"
+
 
 ## project specific directories
 execdir=$(pwd) # execution dir. Should be either illumina runfolder dir or within the project dir where the pipe is run
@@ -87,6 +91,7 @@ runfolderdir=$execdir # note that by default runfolder will be set to same as ex
 runfolder=$(basename $runfolderdir) #
 fastqdir_bcl2fastq="${projectdir}/nf-output/fastq" # only used for blc2fastq output
 fastqdir="${fastqdir_bcl2fastq}/${projectid}" # fastq dir (bcl2fastq demux dir) will be set to /projectdir/fastq
+outboxdir="${outbox_root}/${projectid}"
 
 ## logs
 # logfile="${logfolder}/$id.log"
@@ -259,6 +264,7 @@ echo "  project_root        =  '${project_root}'                    " >> $nf_con
 echo "  delivery_root       =  '${delivery_root}'                   " >> $nf_conf
 echo "  qc_root             =  '${qc_root}'                         " >> $nf_conf
 echo "  completed_root      =  '${completed_root}'                  " >> $nf_conf
+echo "  outbox_root         =  '${completed_root}'                  " >> $nf_conf
 
 echo ""                                                               >> $nf_conf
 echo "  //  project and workfolders                                 " >> $nf_conf
@@ -268,6 +274,7 @@ echo "  n_samples           =  '${n_samples}'                       " >> $nf_con
 echo "  projectdir          =  '${projectdir}'                      " >> $nf_conf
 echo "  bindir              =  '${projectdir}/bin/'                 " >> $nf_conf
 echo "  fastqdir            =  '${fastqdir}'                        " >> $nf_conf
+echo "  outboxdir           =  '${outboxdir}'                        " >> $nf_conf
 echo ""                                                               >> $nf_conf
 echo "  //  samplesheets and files                                  " >> $nf_conf
 echo "  samplesheet           =  '${samplesheet_ctg}'                 " >> $nf_conf
